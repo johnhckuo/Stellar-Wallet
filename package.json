@@ -4,13 +4,14 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "lint": "eslint ./src/**/*.js",
+    "lint": "eslint ./src/**/*.js --fix",
     "babel": "babel-node ./src/main.js",
     "dev": "nodemon --exec \"npm run babel && npm run lint\""
   },
   "author": "johnhckuo",
   "license": "MIT",
   "dependencies": {
+    "request": "^2.88.0",
     "stellar-sdk": "^0.10.2"
   },
   "devDependencies": {
