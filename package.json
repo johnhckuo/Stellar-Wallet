@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./src/**/*.js --fix",
     "babel": "babel-node ./src/main.js",
-    "dev": "nodemon --exec \"npm run babel && npm run lint\""
+    "dev": "nodemon --exec \"npm run babel\""
   },
   "author": "johnhckuo",
   "license": "MIT",
