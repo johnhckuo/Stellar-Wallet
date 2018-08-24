@@ -1,22 +1,14 @@
 const StellarSdk = require('stellar-sdk');
-const request = require('request');
+import Account from './utils'
 
-const pair = StellarSdk.Keypair.random();
-const secret = pair.secret();
-const publicKey = pair.publicKey();
-console.log(secret, publicKey);
-createTestAccount();
+const sendingPair = StellarSdk.Keypair.random();
+const receivingPair = StellarSdk.Keypair.random();
+var sender = new Account(sendingPair.publicKey());
+var receiver = new Account(receivingPair.publicKey());
+sender.createTestAccount().then(()=>{
+  sender.getAccountDetail();
+})
 
-function createTestAccount() {
-  request.get({
-    url: 'https://friendbot.stellar.org',
-    qs: { addr: pair.publicKey() },
-    json: true,
-  }, (error, response, body) => {
-    if (error || response.statusCode !== 200) {
-      console.error('ERROR!', error || body);
-    } else {
-      console.log('SUCCESS! You have a new account :)\n', body);
-    }
-  });
-}
+receiver.createTestAccount().then(()=>{
+  receiver.getAccountDetail();
+})
