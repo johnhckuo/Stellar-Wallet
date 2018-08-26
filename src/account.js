@@ -17,7 +17,7 @@ export default class Account{
           console.error('ERROR!', error || body);
           reject();
         } else {
-          console.log('SUCCESS! Sending account :)\n', body);
+          console.log('SUCCESS! Account created:)\n');
           resolve();
         }
       });
@@ -27,7 +27,7 @@ export default class Account{
   getAccountDetail() {
     const server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
     server.loadAccount(this.publicKey).then((account) => {
-      console.log(`Balances for account: ${this.publicKey}`);
+      console.log(`Balances for account ${this.publicKey}`);
       account.balances.forEach((balance) => {
         console.log('Type:', balance.asset_type, ', Balance:', balance.balance);
       });
