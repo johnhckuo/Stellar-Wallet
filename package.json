@@ -5,12 +5,15 @@
   "main": "main.js",
   "scripts": {
     "lint": "eslint ./src/**/*.js --fix",
-    "babel": "babel-node ./src/main.js",
-    "dev": "nodemon --exec \"npm run babel\""
+    "server": "nodemon --exec \"babel-node ./src/server.js\"",
+    "main": "nodemon --exec \"babel-node ./src/main.js\""
   },
   "author": "johnhckuo",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.10",
     "request": "^2.88.0",
     "stellar-sdk": "^0.10.2"
   },
